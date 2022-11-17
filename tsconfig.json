@@ -1,0 +1,17 @@
+/* Visit https://aka.ms/tsconfig.json to read more about this file */
+{
+  "include": [
+    "src/index.ts"
+  ],
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "lib": ["DOM", "ES2015"],                      
+    "declaration": true,
+    "declarationDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}
