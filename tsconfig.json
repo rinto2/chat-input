@@ -4,8 +4,8 @@
     "src/index.ts"
   ],
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
+    "target": "ES5",
+    "module": "ES6",
     "lib": ["DOM", "ES2015"],                      
     "declaration": true,
     "declarationDir": "./dist",
