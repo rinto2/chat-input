@@ -28,7 +28,7 @@ export default {
         },
         {
             format: 'umd',
-            name: 'chatInput',
+            name: 'ChatInput',
             file: pkg.browser
         }
     ] 
