@@ -1,7 +1,7 @@
 
 import { Options, Insert } from './types/types'
 import { Config } from './lib/config'
-import { getElement } from './utils/index'
+import { getElement } from './utils'
 import Cursor from './lib/cursor'
 
 class ChatInput {
@@ -19,7 +19,8 @@ class ChatInput {
         el.setAttribute('contenteditable', true)
         el.focus()
         this.cursor = new Cursor(el)
-        // this.insert({type: 'text'})
+        const type = content ? 'text' : 'void'
+        this.insert({type: type, content: content})
     }
 }
 

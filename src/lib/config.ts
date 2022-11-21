@@ -3,7 +3,7 @@
 */
 
 import { Options } from '../types/types'
-import { checkElements } from '../utils/index'
+import { checkElements } from '../utils'
 
 export const Config  = (args: Options) => {
     if(!args.id) throw('缺少根Id')
