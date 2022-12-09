@@ -2,4 +2,4 @@
  * 常量
  */
 
- export const empty  = '<p data-row=""><br></p>'
+ export const rowWrap  = '<p data-row=""><br></p>'
