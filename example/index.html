@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>example</title>
-    <script src="../dist/index.umd.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/element-plus/2.2.26/index.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_3818777_sco0bu83hxc.css">    
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.2.45/vue.global.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/element-plus/2.2.26/index.full.min.js"></script>
+    <script src="../dist/index.umd.js"></script>    
 </head>
 <style>
     * {
@@ -48,6 +52,12 @@
         height: 40px;
         border-bottom: 1px solid #dedede;
         box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        padding-left: 15px;
+    }
+    .editor-tools > button {
+        font-size: 20px;
     }
     .content-editor .editor-input-box {
         flex: 1;
@@ -80,6 +90,13 @@
             <div class="content-editor">
                 <div class="editor-tools">
                     <!-- 工具栏 -->
+                    <el-popover placement="top-start" :width="200" trigger="click">
+                        <div>内容</div>
+                        <template #reference>
+                            <el-button class="iconfont icon-emoji" type="text" plain></el-button>
+                        </template>
+                    </el-popover>
+                    <el-button class="iconfont icon-folder" type="text" plain @click="imagesSelect"></el-button>
                 </div>
                 <div class="editor-input-box">
                     <div id="__editor"></div>
@@ -95,20 +112,39 @@
                 </div>
             </div>
         </div>
+        <!-- 图片选择弹窗 -->
+        <el-dialog v-model="imagesSelectShow" title="图片" width="360px">
+            <span>dialog</span>
+        </el-dialog>
     </div>
 </body>
 <script>
-// 配置
-var options = {
+
+
+// Vue使用
+const { createApp, reactive, ref } = Vue
+const vueInstance = {
+    setup() {
+        const imagesSelectShow = ref(false)
+        const imagesSelect = () => {
+            imagesSelectShow.value = true
+        } 
+        return {
+            imagesSelect,
+            imagesSelectShow
+        }
+    }
+}
+
+const app = createApp(vueInstance).use(ElementPlus).mount('.container')
+
+
+// 输入框配置
+const options = {
     id: '#__editor',
     content: '默认文字'
 }
-// const editorEl = document.querySelector('#__editor')
-
-
-// console.log(editorEl)
 var chatInput = ChatInput(options)
-
 
 // 切换快捷键
 </script>
